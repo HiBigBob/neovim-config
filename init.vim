@@ -40,6 +40,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'rking/ag.vim'
 call plug#end()
 
   let g:mapleader = "\<space>"
@@ -79,7 +81,9 @@ call plug#end()
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
     " EasyMotion
-    nmap  è <Plug>(easymotion-bd-w)
+    nmap è <Plug>(easymotion-bd-w)
+    " Comment
+    nmap __ <plug>NERDCommenterToggle
 " Shortcuts
   " \\ => go to command mode
     " imap <leader><leader> <esc>:
@@ -218,6 +222,11 @@ call plug#end()
     let g:neoterm_repl_command= 'zsh'
     let g:neoterm_position = 'horizontal'
     let g:neoterm_automap_keys = ',tt'
+    " nerdtree window resize
+    let g:NERDTreeWinSize = 35
+
+    " show hidden files
+    let g:NERDTreeShowHidden=1
   " tt => type the command for the terminal
     nnoremap ,tt :T<space>
   " te => send current line/selected lines to the terminal
