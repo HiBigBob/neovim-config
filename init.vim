@@ -138,49 +138,29 @@ call plug#end()
     nnoremap ts :SrcExplToggle<CR>
   " tg => toogle the gundo
     nnoremap tg :GundoToggle<CR>
+    nnoremap te :Ttoggle<CR> 
   " tb => open the tagbar
     nmap tb :TlistClose<CR>:TagbarToggle<CR>
   " ti => taglist
     nmap ti :TagbarClose<CR>:Tlist<CR>
-  " <s-enter> => toggle the terminal
-    if exists('nyaovim_version')
-      nnoremap <silent> <s-cr> :Ttoggle<cr>
-    else " in terminal use t<enter>
-      nmap t<CR> :Ttoggle<CR> 
-    endif
-  " \t => goto normal mode and press t (e.g. \t<enter> to toggle the terminal)
-    imap <leader>t <esc>t
-  " \g => scroll to bottom in markdown preview (insert mode)
-    imap <leader>g <esc><leader>Ga
   " \jd => GoTo the definition
     "nnoremap <leader>jd :YcmCompleter GoTo<CR>
   " \e => edit only current/selected line(s) in normal/visual mode
-  " z + [fFtTwWbBeE(ge)(gE)jknNs] => easy motion
-    map zf <Leader><Leader>f
-    map zF <Leader><Leader>F
-    map zt <Leader><Leader>t
-    map zT <Leader><Leader>T
-    map zw <Leader><Leader>w
-    map zW <Leader><Leader>W
-    map zb <Leader><Leader>b
-    map zB <Leader><Leader>B
-    map ze <Leader><Leader>e
-    map zE <Leader><Leader>E
-    map zge <Leader><Leader>ge
-    map zgE <Leader><Leader>gE
-    map zj <Leader><Leader>j
-    map zk <Leader><Leader>k
-    map zn <Leader><Leader>n
-    map zN <Leader><Leader>N
-    map zs <Leader><Leader>s
   " zn => NrrwRgn in normal/visual mode
     nmap zn :NR<CR>
     xmap zn :NR<CR>
+
+" [> multiple cursor <]
+
+  let g:multi_cursor_use_default_mapping=0
+  let g:multi_cursor_next_key='<c-m>'
+  let g:multi_cursor_prev_key='<c-z>'
+  let g:multi_cursor_skip_key='<c-x>'
+  let g:multi_cursor_quit_key='<esc>'
+
   " zm => multipleCursor by regular expression
-    nnoremap zm :MultipleCursorsFind<space>
-    xnoremap zm :MultipleCursorsFind<space>
-    xmap zI zm^<cr>I
-    xmap zA zm$<cr>A
+  nnoremap zm :MultipleCursorsFind<space>
+  xnoremap zm :MultipleCursorsFind<space>
 
 " Plugin settings
   " Deoplete
