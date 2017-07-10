@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/NrrwRgn'
 " navigation
   Plug 'scrooloose/nerdtree'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'wesleyche/SrcExpl'
   Plug 'majutsushi/tagbar'
   Plug 'eugen0329/vim-esearch'
