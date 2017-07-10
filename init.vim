@@ -65,7 +65,7 @@ call plug#end()
   set tabstop=2         "the width of a tab
   set shiftwidth=2      "the width for indent
   set foldenable
-  set foldmethod=indent "folding by indent
+  set foldmethod=manual "folding by indent
   set foldlevel=99
   set ignorecase        "ignore the case when search texts
   set smartcase         "if searching text contains uppercase case will not be ignored
@@ -133,8 +133,8 @@ call plug#end()
     nmap t7 <Plug>AirlineSelectTab7
     nmap t8 <Plug>AirlineSelectTab8
     nmap t9 <Plug>AirlineSelectTab9
-    nmap t[ <Plug>AirlineSelectPrevTab
-    nmap t] <Plug>AirlineSelectNextTab
+    nmap t( <Plug>AirlineSelectPrevTab
+    nmap t) <Plug>AirlineSelectNextTab
   " ts => toggle the srcExpl (for source code exploring)
     nnoremap ts :SrcExplToggle<CR>
   " tg => toogle the gundo
@@ -176,22 +176,8 @@ call plug#end()
     hi link EasyMotionShade Comment
   " Emmet
     let g:user_emmet_leader_key = ',z'
-  " ESearch
-    let g:esearch = {
-      \ 'adapter':    'ag',
-      \ 'backend':    'nvim',
-      \ 'out':        'win',
-      \ 'batch_size': 1000,
-      \ 'use':        ['visual', 'hlsearch', 'last'],
-      \}
   " IndentLine
     let g:indentLine_color_gui = "#504945"
-  " Multi_cursor
-    let g:multi_cursor_use_default_mapping=0
-    let g:multi_cursor_next_key='<c-m>'
-    let g:multi_cursor_prev_key='<c-z>'
-    let g:multi_cursor_skip_key='<c-x>'
-    let g:multi_cursor_quit_key='<esc>'
   " Neomake
     let g:neomake_cpp_enabled_makers = ['clang']
     let g:neomake_cpp_clang_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
@@ -399,17 +385,10 @@ xmap <F6>     <Plug>(neosnippet_expand_target)
 
 tnoremap <Esc> <C-\><C-n>
 
+" Ignore NERDTree
 let ignore = '|node_modules'
 let ignore .= '|vendor'
 let ignore .= '|.git'
-
-" if filereadable(".gitignore")
-"   for line in readfile(".gitignore")
-"     let line = substitute(line, '\.', '\\.', 'g')
-"     let line = substitute(line, '\*', '.*', 'g')
-"     let ignore .= '|^' . line
-"   endfor
-" endif
 let g:NERDTreeIgnore = [ignore]
 
 " JS Beautifier
@@ -425,3 +404,34 @@ autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" ESearch
+let g:esearch = {
+  \ 'adapter':    'ag',
+  \ 'backend':    'nvim',
+  \ 'out':        'win',
+  \ 'batch_size': 100,
+  \ 'use':        ['visual', 'hlsearch', 'last'],
+  \}
+
+" Start esearch prompt autofilled with one of g:esearch.use initial patterns
+call esearch#map('<leader>ff', 'esearch')
+" Start esearch autofilled with a word under the cursor
+call esearch#map('<leader>fw', 'esearch-word-under-cursor')
+
+call esearch#out#win#map('t',       'tab')
+call esearch#out#win#map('i',       'split')
+call esearch#out#win#map('v',       'vsplit')
+call esearch#out#win#map('<Enter>', 'open')
+call esearch#out#win#map('o',       'open')
+
+"    Open silently (keep focus on the results window)
+call esearch#out#win#map('T', 'tab-silent')
+call esearch#out#win#map('I', 'split-silent')
+call esearch#out#win#map('V', 'vsplit-silent')
+
+"    Move cursor with snapping
+call esearch#out#win#map('<C-s>', 'next')
+call esearch#out#win#map('<C-d>', 'next-file')
+call esearch#out#win#map('<C-r>', 'prev')
+call esearch#out#win#map('<C-g>', 'prev-file')
