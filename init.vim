@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'rking/ag.vim'
+  Plug 'maksimr/vim-jsbeautify'
 call plug#end()
 
   let g:mapleader = "\<space>"
@@ -177,7 +178,7 @@ call plug#end()
     let g:user_emmet_leader_key = ',z'
   " ESearch
     let g:esearch = {
-      \ 'adapter':    'ack',
+      \ 'adapter':    'ag',
       \ 'backend':    'nvim',
       \ 'out':        'win',
       \ 'batch_size': 1000,
@@ -410,3 +411,15 @@ let ignore .= '|.git'
 "   endfor
 " endif
 let g:NERDTreeIgnore = [ignore]
+
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
