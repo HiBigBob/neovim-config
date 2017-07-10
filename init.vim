@@ -412,8 +412,10 @@ let ignore .= '|.git'
 " endif
 let g:NERDTreeIgnore = [ignore]
 
+" JS Beautifier
+let g:editorconfig_Beautifier = '~/.config/nvim/.editorconfig'
 map <c-f> :call JsBeautify()<cr>
-" or
+" for js
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for json
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
