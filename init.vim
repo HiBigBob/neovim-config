@@ -45,205 +45,202 @@ call plug#begin('~/.vim/plugged')
   Plug 'maksimr/vim-jsbeautify'
 call plug#end()
 
-  let g:mapleader = "\<space>"
-  let g:localmapleader = "\\"
-  let g:gruvbox_termcolors = 16
+let g:mapleader = "\<space>"
+let g:localmapleader = "\\"
+let g:gruvbox_termcolors = 16
 
 " Fundamental settings
-  set fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
-  set fileformat=unix
-  set fileformats=unix,dos,mac
-  filetype on
-  filetype plugin on
-  filetype plugin indent on
-  syntax on
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
+set fileformat=unix
+set fileformats=unix,dos,mac
+filetype on
+filetype plugin on
+filetype plugin indent on
+syntax on
 " Some useful settings
-  set title
-  set smartindent
-  set expandtab         "tab to spaces
-  set tabstop=2         "the width of a tab
-  set shiftwidth=2      "the width for indent
-  set foldenable
-  set foldmethod=manual "folding by indent
-  set foldlevel=99
-  set ignorecase        "ignore the case when search texts
-  set smartcase         "if searching text contains uppercase case will not be ignored
+set title
+set smartindent
+set expandtab         "tab to spaces
+set tabstop=2         "the width of a tab
+set shiftwidth=2      "the width for indent
+set foldenable
+set foldmethod=manual "folding by indent
+set foldlevel=99
+set ignorecase        "ignore the case when search texts
+set smartcase         "if searching text contains uppercase case will not be ignored
 " Lookings
-  set number           "line number
-  set cursorline       "hilight the line of the cursor
-  " set cursorcolumn     "hilight the column of the cursor
-  set nowrap           "no line wrapping
-  colorscheme gruvbox  "use the theme gruvbox
-  set background=dark "use the light version of gruvbox
-  " change the color of chars over the width of 80 into blue
-  " (uncomment to enable it)
-  "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set number           "line number
+set cursorline       "hilight the line of the cursor
+" set cursorcolumn     "hilight the column of the cursor
+set nowrap           "no line wrapping
+colorscheme gruvbox  "use the theme gruvbox
+set background=dark "use the light version of gruvbox
+" change the color of chars over the width of 80 into blue
+" (uncomment to enable it)
+"au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-    " EasyMotion
-    nmap è <Plug>(easymotion-bd-w)
-    " Comment
-    nmap __ <plug>NERDCommenterToggle
+" EasyMotion
+nmap è <Plug>(easymotion-bd-w)
+" Comment
+nmap __ <plug>NERDCommenterToggle
 " Shortcuts
-  " \\ => go to command mode
-    " imap <leader><leader> <esc>:
-  " go => go to anywhere
-    nmap go <Plug>(easymotion-jumptoanywhere)
-  " <c-v> => for pasting
-    " imap <c-v> <esc>"+pa
-  " <c-h/j/k/l> => hjkl in normal mode (but there is a bug mapping <c-h>)
-    " imap <c-h> <left>
-    " imap <c-j> <down>
-    " imap <c-k> <up>
-    " imap <c-l> <right>
-  " \cl => redraw the screen
-    nmap <leader>l <c-l><c-l>
-    imap <leader>l <esc><leader>la
-  " <space> => fold/unfold current code
-  " tips: zR => unfold all; zM => fold all
-    " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-  " \o => open current file by system apps (only available in osx)
-    " nmap <leader>o :!open "%"<cr>
-    " imap <leader>o <esc><leader>o
-  " ,, => escape to normal mode
-    " imap ,, <Esc>
-    " tmap ,, <Esc>
-  " <esc> => go back to normal mode (in terminal mode)
-    " tnoremap <Esc> <C-\><C-n> 
-  " <F4> => popup the file tree navigation)
-    " nmap <F4> :NERDTreeToggle<CR>
-  " use t{h,j,k,l} to switch between different windows
-    noremap tk <c-w>k
-    noremap tj <c-w>j
-    noremap th <c-w>h
-    noremap tl <c-w>l
-    nmap twj :resize +5<cr>
-    nmap twk :resize -5<cr>
-    nmap twh :vertical resize -5<cr>
-    nmap twl :vertical resize +5<cr>
-  " t[number] => switch to the file showed in the top tabs
-  " t[ t] => prev tab/next tab
-    nmap t1 <Plug>AirlineSelectTab1
-    nmap t2 <Plug>AirlineSelectTab2
-    nmap t3 <Plug>AirlineSelectTab3
-    nmap t4 <Plug>AirlineSelectTab4
-    nmap t5 <Plug>AirlineSelectTab5
-    nmap t6 <Plug>AirlineSelectTab6
-    nmap t7 <Plug>AirlineSelectTab7
-    nmap t8 <Plug>AirlineSelectTab8
-    nmap t9 <Plug>AirlineSelectTab9
-    nmap t( <Plug>AirlineSelectPrevTab
-    nmap t) <Plug>AirlineSelectNextTab
-  " ts => toggle the srcExpl (for source code exploring)
-    nnoremap ts :SrcExplToggle<CR>
-  " tg => toogle the gundo
-    nnoremap tg :GundoToggle<CR>
-    nnoremap te :Ttoggle<CR> 
-  " tb => open the tagbar
-    nmap tb :TlistClose<CR>:TagbarToggle<CR>
-  " ti => taglist
-    nmap ti :TagbarClose<CR>:Tlist<CR>
-  " \jd => GoTo the definition
-    "nnoremap <leader>jd :YcmCompleter GoTo<CR>
-  " \e => edit only current/selected line(s) in normal/visual mode
-  " zn => NrrwRgn in normal/visual mode
-    nmap zn :NR<CR>
-    xmap zn :NR<CR>
+" \\ => go to command mode
+" imap <leader><leader> <esc>:
+" go => go to anywhere
+nmap go <Plug>(easymotion-jumptoanywhere)
+" <c-v> => for pasting
+" imap <c-v> <esc>"+pa
+" <c-h/j/k/l> => hjkl in normal mode (but there is a bug mapping <c-h>)
+" imap <c-h> <left>
+" imap <c-j> <down>
+" imap <c-k> <up>
+" imap <c-l> <right>
+" \cl => redraw the screen
+nmap <leader>l <c-l><c-l>
+imap <leader>l <esc><leader>la
+" <space> => fold/unfold current code
+" tips: zR => unfold all; zM => fold all
+" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+" \o => open current file by system apps (only available in osx)
+" nmap <leader>o :!open "%"<cr>
+" imap <leader>o <esc><leader>o
+" ,, => escape to normal mode
+" imap ,, <Esc>
+" tmap ,, <Esc>
+" <esc> => go back to normal mode (in terminal mode)
+" tnoremap <Esc> <C-\><C-n> 
+" <F4> => popup the file tree navigation)
+" nmap <F4> :NERDTreeToggle<CR>
+" use t{h,j,k,l} to switch between different windows
+noremap tk <c-w>k
+noremap tj <c-w>j
+noremap th <c-w>h
+noremap tl <c-w>l
+nmap twj :resize +5<cr>
+nmap twk :resize -5<cr>
+nmap twh :vertical resize -5<cr>
+nmap twl :vertical resize +5<cr>
+" t[number] => switch to the file showed in the top tabs
+" t[ t] => prev tab/next tab
+nmap t1 <Plug>AirlineSelectTab1
+nmap t2 <Plug>AirlineSelectTab2
+nmap t3 <Plug>AirlineSelectTab3
+nmap t4 <Plug>AirlineSelectTab4
+nmap t5 <Plug>AirlineSelectTab5
+nmap t6 <Plug>AirlineSelectTab6
+nmap t7 <Plug>AirlineSelectTab7
+nmap t8 <Plug>AirlineSelectTab8
+nmap t9 <Plug>AirlineSelectTab9
+nmap t( <Plug>AirlineSelectPrevTab
+nmap t) <Plug>AirlineSelectNextTab
+" ts => toggle the srcExpl (for source code exploring)
+nnoremap ts :SrcExplToggle<CR>
+" tg => toogle the gundo
+nnoremap tg :GundoToggle<CR>
+nnoremap te :Ttoggle<CR> 
+" tb => open the tagbar
+nmap tb :TlistClose<CR>:TagbarToggle<CR>
+" ti => taglist
+nmap ti :TagbarClose<CR>:Tlist<CR>
+" \jd => GoTo the definition
+"nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" \e => edit only current/selected line(s) in normal/visual mode
+" zn => NrrwRgn in normal/visual mode
+nmap zn :NR<CR>
+xmap zn :NR<CR>
 
 " [> multiple cursor <]
 
-  let g:multi_cursor_use_default_mapping=0
-  let g:multi_cursor_next_key='<c-m>'
-  let g:multi_cursor_prev_key='<c-z>'
-  let g:multi_cursor_skip_key='<c-x>'
-  let g:multi_cursor_quit_key='<esc>'
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<c-m>'
+let g:multi_cursor_prev_key='<c-z>'
+let g:multi_cursor_skip_key='<c-x>'
+let g:multi_cursor_quit_key='<esc>'
 
-  " zm => multipleCursor by regular expression
-  nnoremap zm :MultipleCursorsFind<space>
-  xnoremap zm :MultipleCursorsFind<space>
+" zm => multipleCursor by regular expression
+nnoremap zm :MultipleCursorsFind<space>
+xnoremap zm :MultipleCursorsFind<space>
 
 " Plugin settings
-  " Deoplete
-    let g:deoplete#enable_at_startup = 1
-  " EasyAlign
-    xmap ga <Plug>(LiveEasyAlign)
-    nmap ga <Plug>(LiveEasyAlign)
-  " EasyMotion
-    hi EasyMotionTarget ctermfg=9 guifg=red
-    hi EasyMotionTarget2First ctermfg=9 guifg=red
-    hi EasyMotionTarget2Second ctermfg=9 guifg=lightred
-    hi link EasyMotionShade Comment
-  " Emmet
-    let g:user_emmet_leader_key = ',z'
-  " IndentLine
-    let g:indentLine_color_gui = "#504945"
-  " Neomake
-    let g:neomake_cpp_enabled_makers = ['clang']
-    let g:neomake_cpp_clang_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
-    let g:neomake_cpp_gcc_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
-    let g:neomake_scala_enabled_markers = ['fsc', 'scalastyle']
-    let g:neomake_scala_scalac_args = ['-Ystop-after:parser', '-Xexperimental']
-  " Neoterm
-    let g:neoterm_size=20
-    let g:neoterm_repl_command= 'zsh'
-    let g:neoterm_position = 'horizontal'
-    let g:neoterm_automap_keys = ',tt'
-    " nerdtree window resize
-    let g:NERDTreeWinSize = 35
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+" EasyAlign
+xmap ga <Plug>(LiveEasyAlign)
+nmap ga <Plug>(LiveEasyAlign)
+" EasyMotion
+hi EasyMotionTarget ctermfg=9 guifg=red
+hi EasyMotionTarget2First ctermfg=9 guifg=red
+hi EasyMotionTarget2Second ctermfg=9 guifg=lightred
+hi link EasyMotionShade Comment
+" Emmet
+let g:user_emmet_leader_key = ',z'
+" IndentLine
+let g:indentLine_color_gui = "#504945"
+" Neomake
+let g:neomake_cpp_enabled_makers = ['clang']
+let g:neomake_cpp_clang_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
+let g:neomake_cpp_gcc_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
+let g:neomake_scala_enabled_markers = ['fsc', 'scalastyle']
+let g:neomake_scala_scalac_args = ['-Ystop-after:parser', '-Xexperimental']
+" Neoterm
+let g:neoterm_size=20
+let g:neoterm_repl_command= 'zsh'
+let g:neoterm_position = 'horizontal'
+let g:neoterm_automap_keys = ',tt'
+" nerdtree window resize
+let g:NERDTreeWinSize = 35
 
-    " show hidden files
-    let g:NERDTreeShowHidden=1
-  " tt => type the command for the terminal
-    nnoremap ,tt :T<space>
-  " te => send current line/selected lines to the terminal
-    nnoremap <silent> te :TREPLSend<CR>
-    xnoremap <silent> te :TREPLSend<CR>
-  " tE => send the thole current file to the terminal
-    nnoremap <silent> tE :TREPLSendFile<CR>
+" show hidden files
+let g:NERDTreeShowHidden=1
+" tt => type the command for the terminal
+nnoremap ,tt :T<space>
+" te => send current line/selected lines to the terminal
+nnoremap <silent> te :TREPLSend<CR>
+xnoremap <silent> te :TREPLSend<CR>
+" tE => send the thole current file to the terminal
+nnoremap <silent> tE :TREPLSendFile<CR>
 
-    " Useful maps
-    " hide/close terminal
-    nnoremap <silent> ,th :call neoterm#close()<cr>
-    " clear terminal
-    nnoremap <silent> ,tc :call neoterm#clear()<cr>
-    " kills the current job (send a <c-c>)
-    nnoremap <silent> ,tk :call neoterm#kill()<cr>
+" Useful maps
+" hide/close terminal
+nnoremap <silent> ,th :call neoterm#close()<cr>
+" clear terminal
+nnoremap <silent> ,tc :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> ,tk :call neoterm#kill()<cr>
 
-
-  " Notes
-    let g:notes_directories = ['~/Dev/notes-in-vim']
-  " Supertab
-    let g:SuperTabMappingForward = '<s-tab>'
-    let g:SuperTabMappingBackward = '<tab>'
-  " Tagbar
-    let g:tagbar_width=30
-  " Taglist
-    let Tlist_Show_One_File=1
-    let Tlist_Exit_OnlyWindow=1
-    let Tlist_File_Fold_Auto_Close=1
-    let Tlist_WinWidth=30
-    let Tlist_Use_Right_Window=1
-  " UltiSnip
-  " <tab> => expand the snippets
-    let g:UltiSnipsExpandTrigger = '<tab>'
-  " <ctrl-d> => list available snippets start with the chars before the cursor
-    let g:UltiSnipsListSnippets = '<c-d>'
-  " <enter> => go to the next placeholder
-    let g:UltiSnipsJumpForwardTrigger = '<enter>'
-  " <shift-enter> => go to the previous placeholder
-    if exists('g:nyaovim_version')
-      let g:UltiSnipsJumpBackwardTrigger = '<s-enter>'
-    else "as <shift-enter> can't be handled in terminal, use <ctrl-k> instead
-      let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-    endif
-
+" Notes
+let g:notes_directories = ['~/Dev/notes-in-vim']
+" Supertab
+let g:SuperTabMappingForward = '<s-tab>'
+let g:SuperTabMappingBackward = '<tab>'
+" Tagbar
+let g:tagbar_width=30
+" Taglist
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_WinWidth=30
+let Tlist_Use_Right_Window=1
+" UltiSnip
+" <tab> => expand the snippets
+let g:UltiSnipsExpandTrigger = '<tab>'
+" <ctrl-d> => list available snippets start with the chars before the cursor
+let g:UltiSnipsListSnippets = '<c-d>'
+" <enter> => go to the next placeholder
+let g:UltiSnipsJumpForwardTrigger = '<enter>'
+" <shift-enter> => go to the previous placeholder
+if exists('g:nyaovim_version')
+  let g:UltiSnipsJumpBackwardTrigger = '<s-enter>'
+else "as <shift-enter> can't be handled in terminal, use <ctrl-k> instead
+  let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+endif
 
 noremap . :
 inoremap à <esc> :w<cr>
 inoremap vv <esc>
 noremap à :w<cr>
-
 nnoremap <c-n> :tabn<CR>
 nnoremap <c-t> :tabp<CR>
 nnoremap <leader>p :FZF <CR>
@@ -251,23 +248,22 @@ nnoremap <leader>o :call fzf#run({'source': v:oldfiles, 'sink': 'e','options': '
 
 " Wrap a word in double quotes
 nnoremap <leader>" vaw<esc>i"<esc>hbi"<esc>lel
-
 " Wrap a word in single quotes
 nnoremap <leader>' vaw<esc>i'<esc>hbi'<esc>lel
 
 " move the current line below
 nnoremap <leader>- ddp
-
 " move the current line above
 nnoremap <leader>_ ddkP
 
 nnoremap <F2> <c-w><c-w><CR>
 imap <leader>q  <Esc>
 nnoremap <leader>q  :q<CR>
+nnoremap <leader>d  :bd<CR>
+
 nnoremap <F5> :NERDTreeToggle<cr>
 inoremap <F5> <esc>:NERDTreeToggle<cr><c-w>la
 let g:nerdtree_tabs_open_on_gui_startup=1
-
 let NERDTreeMapOpenInTab = 'v'
 let NERDTreeMapOpenInTabSilent = 'V'
 let NERDTreeMapOpenVSplit = 'd'
@@ -379,6 +375,7 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
 imap <F6>     <Plug>(neosnippet_expand_or_jump)
 smap <F6>     <Plug>(neosnippet_expand_or_jump)
 xmap <F6>     <Plug>(neosnippet_expand_target)
@@ -413,23 +410,19 @@ let g:esearch = {
   \ 'batch_size': 100,
   \ 'use':        ['visual', 'hlsearch', 'last'],
   \}
-
 " Start esearch prompt autofilled with one of g:esearch.use initial patterns
 call esearch#map('<leader>ff', 'esearch')
 " Start esearch autofilled with a word under the cursor
 call esearch#map('<leader>fw', 'esearch-word-under-cursor')
-
 call esearch#out#win#map('t',       'tab')
 call esearch#out#win#map('i',       'split')
 call esearch#out#win#map('v',       'vsplit')
 call esearch#out#win#map('<Enter>', 'open')
 call esearch#out#win#map('o',       'open')
-
 "    Open silently (keep focus on the results window)
 call esearch#out#win#map('T', 'tab-silent')
 call esearch#out#win#map('I', 'split-silent')
 call esearch#out#win#map('V', 'vsplit-silent')
-
 "    Move cursor with snapping
 call esearch#out#win#map('<C-s>', 'next')
 call esearch#out#win#map('<C-d>', 'next-file')
