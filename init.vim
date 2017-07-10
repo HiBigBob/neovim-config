@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'rking/ag.vim'
   Plug 'maksimr/vim-jsbeautify'
+  Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 let g:mapleader = "\<space>"
@@ -260,8 +261,8 @@ imap <leader>q  <Esc>
 nnoremap <leader>q  :q<CR>
 nnoremap <leader>d  :bd<CR>
 
-nnoremap <F5> :NERDTreeToggle<cr>
-inoremap <F5> <esc>:NERDTreeToggle<cr><c-w>la
+nnoremap <F5> :NERDTreeTabsToggle<cr>
+inoremap <F5> <esc>:NERDTreeTabsToggle<cr><c-w>la
 let g:nerdtree_tabs_open_on_gui_startup=1
 let NERDTreeMapOpenInTab = 'v'
 let NERDTreeMapOpenInTabSilent = 'V'
@@ -427,3 +428,17 @@ call esearch#out#win#map('<C-s>', 'next')
 call esearch#out#win#map('<C-d>', 'next-file')
 call esearch#out#win#map('<C-r>', 'prev')
 call esearch#out#win#map('<C-g>', 'prev-file')
+
+" Ctrl+C -> Copy to clipboard
+vnoremap <C-C> "+ygv
+" Ctrl+Q -> alias Ctrl+V for visual mode
+noremap <C-B> <C-V>
+" Ctrl+V -> Paste from clipboard
+map <C-V> "+gP
+cmap <C-V> <C-R>+
+exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
+" Ctrl+A -> Select all
+noremap <C-A> <esc>ggVG<CR>
+
+
