@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rking/ag.vim'
   Plug 'maksimr/vim-jsbeautify'
   Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'ctrlpvim/ctrlp.vim' 
 call plug#end()
 
 let g:mapleader = "\<space>"
@@ -80,6 +81,7 @@ set background=dark "use the light version of gruvbox
 " (uncomment to enable it)
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set shell=/bin/zsh
 
 " EasyMotion
 nmap è <Plug>(easymotion-bd-w)
