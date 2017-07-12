@@ -22,3 +22,14 @@ I recommend reading the docs of these plugins to understand them better. Each pl
 * [vim-airline](https://github.com/vim-airline/vim-airline): Lean & mean status/tabline for vim that'sight as air.
 * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes): A collection of themes for vim-airline.
 
+## Features
+
+### Multiple cursors
+
+```
+<c-m>: next key
+<c-z>: prev key
+<c-x>: skip key
+<esc>: quit key
+zm: find by regular expression
+```
