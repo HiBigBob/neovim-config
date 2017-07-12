@@ -33,3 +33,12 @@ I recommend reading the docs of these plugins to understand them better. Each pl
 <esc>: quit key
 zm: find by regular expression
 ```
+
+### NeoTerm
+
+```
+,tt: launch terminal
+,th: hide/close terminal
+,tc: clear terminal
+,tk: kill terminal
+```
