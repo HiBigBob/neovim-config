@@ -101,3 +101,16 @@ Move cursor with snapping
 <C-r>: prev
 <C-g>: prev-file
 ```
+
+### Clipboard
+
+```
+<c-c>: Copy to clipboard
+<c-v>: Paste to clipboard
+```
+
+### Commenter
+
+```
+__: toggle commenter
+```
