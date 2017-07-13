@@ -59,3 +59,45 @@ d: open in vsplit
 l: refresh
 L: refresh root
 ```
+
+### JSBeautify
+
+```
+<c-f>: Formatting js,json,html,css files
+```
+
+### Search
+
+Launch search
+
+```
+<leader>ff: Search
+<leader>fw: Search word under cursor
+```
+
+Open file
+
+```
+t: open in tab
+i: open file in split
+v: open file in vsplit
+<Enter>: open
+o: open
+```
+
+Open silently (keep focus on the results window)
+
+```
+T: open in tab
+I: open file in split
+V: open file in vsplit
+```
+
+Move cursor with snapping
+
+```
+<C-s>: next
+<C-d>: next-file
+<C-r>: prev
+<C-g>: prev-file
+```
