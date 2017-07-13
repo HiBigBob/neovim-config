@@ -22,7 +22,7 @@ I recommend reading the docs of these plugins to understand them better. Each pl
 * [vim-airline](https://github.com/vim-airline/vim-airline): Lean & mean status/tabline for vim that'sight as air.
 * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes): A collection of themes for vim-airline.
 
-## Features
+## Tutorials
 
 ### Multiple cursors
 
@@ -41,4 +41,21 @@ zm: find by regular expression
 ,th: hide/close terminal
 ,tc: clear terminal
 ,tk: kill terminal
+```
+
+### Easymotion
+
+```
+go: go to anywhere
+```
+
+### NERDTree
+
+```
+<F5>: NERDTree toggle
+v: open in tab
+V: open in tab on silent
+d: open in vsplit
+l: refresh
+L: refresh root
 ```
