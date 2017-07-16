@@ -60,6 +60,7 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 " Some useful settings
+
 set title
 set smartindent
 set expandtab         "tab to spaces
