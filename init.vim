@@ -3,6 +3,7 @@ function! DoRemote(arg)
 endfunction
 call plug#begin('~/.vim/plugged')
 " looking
+"
   Plug 'Yggdroot/indentLine'
   Plug 'myusuf3/numbers.vim'
   Plug 'bling/vim-airline', { 'do' : $HOME.'/.vim/fonts/install' }
