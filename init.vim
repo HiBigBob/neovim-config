@@ -73,6 +73,7 @@ set foldmethod=manual "folding by indent
 set foldlevel=99
 set ignorecase        "ignore the case when search texts
 set smartcase         "if searching text contains uppercase case will not be ignored
+set mouse=a
 " Lookings
 set number           "line number
 set cursorline       "hilight the line of the cursor
