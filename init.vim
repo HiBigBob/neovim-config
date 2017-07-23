@@ -191,9 +191,9 @@ let g:neomake_cpp_gcc_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
 let g:neomake_scala_enabled_markers = ['fsc', 'scalastyle']
 let g:neomake_scala_scalac_args = ['-Ystop-after:parser', '-Xexperimental']
 " Neoterm
-let g:neoterm_size=20
+let g:neoterm_size=60
 let g:neoterm_repl_command= 'zsh'
-let g:neoterm_position = 'horizontal'
+let g:neoterm_position = 'vertical'
 let g:neoterm_automap_keys = ',tt'
 " nerdtree window resize
 let g:NERDTreeWinSize = 35
