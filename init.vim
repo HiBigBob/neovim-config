@@ -247,6 +247,7 @@ noremap . :
 inoremap à <esc> :w<cr>
 inoremap vv <esc>
 noremap à :w<cr>
+imap à <esc>:w<cr>
 nnoremap <c-n> :tabn<CR>
 nnoremap <c-t> :tabp<CR>
 nnoremap <leader>p :FZF <CR>
