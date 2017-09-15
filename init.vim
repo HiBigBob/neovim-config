@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'maksimr/vim-jsbeautify'
   Plug 'jistr/vim-nerdtree-tabs'
   Plug 'ctrlpvim/ctrlp.vim' 
+  Plug 'mhinz/vim-startify'
 call plug#end()
 
 let g:mapleader = "\<space>"
@@ -61,7 +62,6 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax on
-" Some useful settings
 
 set title
 set smartindent
@@ -77,7 +77,6 @@ set mouse=a
 " Lookings
 set number           "line number
 set cursorline       "hilight the line of the cursor
-" set cursorcolumn     "hilight the column of the cursor
 set nowrap           "no line wrapping
 colorscheme gruvbox  "use the theme gruvbox
 set background=dark "use the light version of gruvbox
@@ -448,4 +447,37 @@ exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 " Ctrl+A -> Select all
 noremap <C-A> <esc>ggVG<CR>
 
+let g:startify_custom_header = [
+     \ '                                _             _            _      _          _        _         _   _      ', 
+     \ '                              /\ \     _    /\ \         /\ \   /\ \    _ / /\      /\ \      /\_\/\_\ _   ',
+     \ '                             /  \ \   /\_\ /  \ \       /  \ \  \ \ \  /_/ / /      \ \ \    / / / / //\_\ ',
+     \ '                            / /\ \ \_/ / // /\ \ \     / /\ \ \  \ \ \ \___\/       /\ \_\  /\ \/ \ \/ / / ',
+     \ '                           / / /\ \___/ // / /\ \_\   / / /\ \ \ / / /  \ \ \      / /\/_/ /  \____\__/ /  ',
+     \ '                          / / /  \/____// /_/_ \/_/  / / /  \ \_\\ \ \   \_\ \    / / /   / /\/________/   ',
+     \ '                         / / /    / / // /____/\    / / /   / / / \ \ \  / / /   / / /   / / /\/_// / /    ',
+     \ '                        / / /    / / // /\____\/   / / /   / / /   \ \ \/ / /   / / /   / / /    / / /     ',
+     \ '                       / / /    / / // / /______  / / /___/ / /     \ \ \/ /___/ / /__ / / /    / / /      ',
+     \ '                      / / /    / / // / /_______\/ / /____\/ /       \ \  //\__\/_/___\\/_/    / / /       ',
+     \ '                      \/_/     \/_/ \/__________/\/_________/         \_\/ \/_________/        \/_/        ',
+      \ ]
+let g:startify_padding_left = 20
+let g:startify_list_order = [
+            \ ['   ⇝  My most recently used files'],
+            \ 'files',
+            \ ['   ⇝  My most recently used files in the current directory:'],
+            \ 'dir',
+            \ ['   ⇝  These are my sessions:'],
+            \ 'sessions',
+            \ ['   ⇝  These are my bookmarks:'],
+            \ 'bookmarks',
+            \ ['   ⇝  These are my commands:'],
+            \ 'commands',
+            \ ]
+let g:startify_bookmarks = [
+      \ {'v': '~/.vim/local-bepo.vim'}, 
+      \ {'z': '~/.zshrc'}, 
+      \ {'nb': '~/Documents/github/nba-board'}, 
+      \ {'na': '~/Documents/github/nba-api'}, 
+      \ ]
 
+let g:indentLine_enabled = 0
