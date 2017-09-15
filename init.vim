@@ -123,10 +123,10 @@ noremap tk <c-w>k
 noremap tj <c-w>j
 noremap th <c-w>h
 noremap tl <c-w>l
-nmap twj :resize +5<cr>
-nmap twk :resize -5<cr>
-nmap twh :vertical resize -5<cr>
-nmap twl :vertical resize +5<cr>
+nmap twj :resize +10<cr>
+nmap twk :resize -10<cr>
+nmap twh :vertical resize -10<cr>
+nmap twl :vertical resize +10<cr>
 " t[number] => switch to the file showed in the top tabs
 " t[ t] => prev tab/next tab
 nmap t1 <Plug>AirlineSelectTab1
@@ -190,7 +190,7 @@ let g:neomake_cpp_gcc_args = ['-Wall', '-Wextra', '-std=c++11', '-o', '%:p:r']
 let g:neomake_scala_enabled_markers = ['fsc', 'scalastyle']
 let g:neomake_scala_scalac_args = ['-Ystop-after:parser', '-Xexperimental']
 " Neoterm
-let g:neoterm_size=60
+let g:neoterm_size=70
 let g:neoterm_repl_command= 'zsh'
 let g:neoterm_position = 'vertical'
 let g:neoterm_automap_keys = ',tt'
@@ -201,6 +201,7 @@ let g:NERDTreeWinSize = 35
 let g:NERDTreeShowHidden=1
 " tt => type the command for the terminal
 nnoremap ,tt :T<space>
+nnoremap ,te :Ttoggle<CR>
 " te => send current line/selected lines to the terminal
 nnoremap <silent> te :TREPLSend<CR>
 xnoremap <silent> te :TREPLSend<CR>
@@ -475,6 +476,7 @@ let g:startify_list_order = [
             \ ]
 let g:startify_bookmarks = [
       \ {'v': '~/.vim/local-bepo.vim'}, 
+      \ {'nv': '~/.config/nvim/init.vim'}, 
       \ {'z': '~/.zshrc'}, 
       \ {'nb': '~/Documents/github/nba-board'}, 
       \ {'na': '~/Documents/github/nba-api'}, 
