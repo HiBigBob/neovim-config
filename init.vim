@@ -47,6 +47,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jistr/vim-nerdtree-tabs'
   Plug 'ctrlpvim/ctrlp.vim' 
   Plug 'mhinz/vim-startify'
+  Plug 'vim-scripts/dbext.vim'
 call plug#end()
 
 let g:mapleader = "\<space>"
@@ -65,6 +66,7 @@ syntax on
 
 set title
 set smartindent
+set autoindent
 set expandtab         "tab to spaces
 set tabstop=2         "the width of a tab
 set shiftwidth=2      "the width for indent
@@ -194,6 +196,7 @@ let g:neoterm_size=70
 let g:neoterm_repl_command= 'zsh'
 let g:neoterm_position = 'vertical'
 let g:neoterm_automap_keys = ',tt'
+let g:neoterm_autoscroll = 1
 " nerdtree window resize
 let g:NERDTreeWinSize = 35
 
@@ -264,6 +267,7 @@ nnoremap <leader>- ddp
 nnoremap <leader>_ ddkP
 
 nnoremap <F2> <c-w><c-w><CR>
+inoremap <F2> <esc><c-w><c-w><CR>
 imap <leader>q  <Esc>
 nnoremap <leader>q  :q<CR>
 nnoremap <leader>d  :bd<CR>
@@ -483,3 +487,7 @@ let g:startify_bookmarks = [
       \ ]
 
 let g:indentLine_enabled = 0
+
+let g:dbext_default_profile_psql = 'type=PGSQL:host=localhost:port=5432:dbname=nba:user=nba'
+let g:dbext_default_profile = 'psql'
+autocmd VimEnter * DBCompleteTables
